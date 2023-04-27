@@ -20,8 +20,8 @@
 }
 
 .bodyConfirmarMesa img{
-    margin-top: 30px;
-    width: 80vw;
+    margin-top: 10px;
+    width: 70vw;
     height: auto;
 }
 
@@ -61,8 +61,8 @@
     padding: 30px;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     margin-top: 10px;
     border: none;
     border-radius: 100px;
