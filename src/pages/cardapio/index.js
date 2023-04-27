@@ -3,10 +3,12 @@ import logo from '../../assets/logomarca.png';
 import './cardapio.css';
 import MenuBottom from '../../components/menuBottom';
 function Cardapio(){
+    const estabelecimento = "Mão de Pilão";
+
     return(
         <div className='bodyCardapio'>
             <MenuBottom/>
-           <p>cardapio</p> 
+           <h1>{estabelecimento}</h1> 
 
         </div>
     );
