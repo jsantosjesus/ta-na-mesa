@@ -7,7 +7,7 @@ import { FaFileAlt } from "react-icons/fa";
 import { BsClock } from "react-icons/bs";
 import { FaConciergeBell } from "react-icons/fa";
 
-function menuBottom(){
+function MenuBottom(){
     return(
         <div className="bodyMenuBottom">
            <Link to='/cardapio'><p className="menuBottomHome"><ImHome /></p></Link>
@@ -17,4 +17,4 @@ function menuBottom(){
            <Link to='/'><p><FaConciergeBell /></p></Link>
         </div>
     );
-} export default menuBottom;
+} export default MenuBottom;
