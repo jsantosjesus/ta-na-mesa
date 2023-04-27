@@ -51,7 +51,6 @@
 }
 
 .titleMesa{
-    margin-top: 30px;
     width: 50%;
     margin-left: 25%;
 }
@@ -59,11 +58,11 @@
 .buttonConfirmarMesa{
     font-size: 20px;
     color: #ff881f;
-    padding: 20px;
+    padding: 30px;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: none;
     border-radius: 100px;
     width: 60%;
