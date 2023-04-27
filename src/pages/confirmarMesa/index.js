@@ -3,7 +3,7 @@ import logo from '../../assets/logomarca.png';
 import './confirmarMesa.css';
 
 function confirmarMesa(){
-    const estabelecimento = "Mão de pilão";
+    const estabelecimento = "Mão de pilã";
     const mesa = "Mesa 01";
     return(
         <div className="bodyConfirmarMesa">
