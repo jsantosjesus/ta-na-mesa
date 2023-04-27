@@ -1,16 +1,17 @@
-import React,{useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../assets/logomarca.png';
 import './cardapio.css';
 import MenuBottom from '../../components/menuBottom';
-function Cardapio(){
-    const estabelecimento = "Mão de Pilão";
+function Cardapio() {
+    const estabelecimento = "Pizzaria Mão de Pilão";
 
-    return(
+    return (
         <div className='bodyCardapio'>
-            <MenuBottom/>
-           <h1>{estabelecimento}</h1> 
-
+            <MenuBottom />
+            <div className='headCardapio'>
+                <h1>{estabelecimento}</h1>
+            </div>
         </div>
     );
-} 
+}
 export default Cardapio;
