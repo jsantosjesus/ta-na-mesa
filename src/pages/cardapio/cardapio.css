@@ -19,3 +19,22 @@
     font-family: 'gijsuy', sans-serif;
     margin-top: 10px;
 }
+
+.pesquisaCardapio{
+    width: 100%;
+    text-align: center;
+}
+
+.pesquisaCardapio input{
+    background-color: #c8c4c4;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/* .pesquisaCardapio input:focus{
+    box-shadow: 1px;
+    border: 1px #ff881f;
+    outline: 1px #ff881f;
+} */
