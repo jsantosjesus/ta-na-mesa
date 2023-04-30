@@ -2,21 +2,24 @@ import React, { useState, useEffect } from 'react';
 import logo from '../../assets/logomarca.png';
 import './cardapio.css';
 import MenuBottom from '../../components/menuBottom';
+import pizzaDeQueijo from '../../assets/pizzaDeQueijo.png';
+import hamburguer from '../../assets/hamburguer.png';
+import cervejaBudweiser from '../../assets/cervejaBudweiser.png';
 
 function Cardapio() {
     const estabelecimento = "Pizzaria Mão de Pilão";
 
     const [produtos, setProdutos] = useState([{
         id: 1,
-        imagem: "src",
-        nome: "Pizza de frango",
+        imagem: pizzaDeQueijo,
+        nome: "Pizza de queijo",
         Descricao: "Tomate, cebola, Queijo e frango",
         preco: 59.99,
         categoria: 'pizzas'
     },
     {
         id: 2,
-        imagem: "src",
+        imagem: pizzaDeQueijo,
         nome: "Pizza de Lombo Tamanho Família",
         Descricao: "Tomate, cebola, Queijo e lombo",
         preco: 49.99,
@@ -24,7 +27,7 @@ function Cardapio() {
     },
     {
         id: 3,
-        imagem: "src",
+        imagem: cervejaBudweiser,
         nome: "Cerveja Budwiser 200ml",
         Descricao: "A melhor",
         preco: 9.99,
@@ -32,7 +35,7 @@ function Cardapio() {
     },
     {
         id: 4,
-        imagem: "src",
+        imagem: hamburguer,
         nome: "Hamburguer Americano",
         Descricao: "Carne Bovina, Tomate, Cebola, Alface, Queijo",
         preco: 4.99,
@@ -89,9 +92,9 @@ function Cardapio() {
             </div>
             <div className='categorias'>
                 <div onClick={() => escolherCategoria('todos')}
-                   className={
-                   'todos' === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
-                }>
+                    className={
+                        'todos' === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
+                    }>
                     Todos
                 </div>
                 {categorias.map((categorias, index) => (
@@ -108,14 +111,17 @@ function Cardapio() {
             </div>
             <div className='produtosCardapio'>
                 {filteredData.map((object, id) => (
-                    <div >
+                    <div>
                         <div className="produtos"
                         // onClick={() => handleClick(object)}
                         >
 
-                            <p>{object.nome}</p>
-                            <p>R$ {object.preco.toFixed(2).replace(".", ",")}</p>
-                            <p>{object.imagem}</p>
+                            <img className='produtoImagem' src={object.imagem} alt='imagem do produto' />
+                            <div>
+                                <h3>{object.nome}</h3>
+                                <p className="produtoDescricao">{object.Descricao}</p>
+                                <p className='produtoPreco'>R$ {object.preco.toFixed(2).replace(".", ",")}</p>
+                            </div>
                         </div>
                         {/* <Popup object={object} /> */}
                     </div>
