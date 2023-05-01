@@ -29,7 +29,7 @@ function Cardapio() {
         id: 3,
         imagem: cervejaBudweiser,
         nome: "Cerveja Budwiser 200ml",
-        Descricao: "A melhor",
+        Descricao: "A melhor loren loren loren loren loren loren loren loren loren loren loren",
         preco: 9.99,
         categoria: 'bebidas'
     },

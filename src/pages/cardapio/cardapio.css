@@ -70,13 +70,13 @@
     border-bottom: solid 1px #c8c4c4;
     border-top: solid 1px #c8c4c4;
     height: 100px;
-    width: 100vw;
+    width: 100%;
 }
 
 .produtos div{
     display: block;
     margin-left: 10px;
-    width: 90%;
+    width: 100%;
 }
 
 .produtoImagem{
@@ -89,10 +89,17 @@
     margin-bottom: 0;
     font-family: 'gijsuy', sans-serif;
     color: #914f16;
+    font-size: 15px;
 }
 
 .produtoDescricao{
     margin-top: 3px;
+    font-size: 12px;
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0;
 }
 
 .produtoPreco{
