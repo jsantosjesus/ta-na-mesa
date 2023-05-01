@@ -40,6 +40,14 @@ function Cardapio() {
         Descricao: "Carne Bovina, Tomate, Cebola, Alface, Queijo",
         preco: 4.99,
         categoria: 'lanches'
+    },
+    {
+        id: 4,
+        imagem: hamburguer,
+        nome: "Hamburguer Americano",
+        Descricao: "Carne Bovina, Tomate, Cebola, Alface, Queijo",
+        preco: 4.99,
+        categoria: 'lanches'
     }]);
 
     const categorias = [{ id: 0, nome: "bebidas" }, { id: 1, nome: "lanches" }, { id: 2, nome: "pizzas" }, { id: 2, nome: "doces" }, { id: 2, nome: "salgados" }, { id: 2, nome: "testando" }];
