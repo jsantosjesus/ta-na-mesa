@@ -71,9 +71,6 @@
     color:black
 }
 
-.produtosCardapio{
-    margin-bottom: 67px;
-}
 
 .produtos{
     display: flex;
@@ -121,3 +118,120 @@
     font-family: 'gijsuy', sans-serif;
     color: #914f16;
 }
+
+/* poupup produto individual */
+
+.PoupupProduto{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #efefef;
+}
+
+.fecharProdutoIndividual{
+    font-size: 30px;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.poupupProdutoContent{
+    text-align: center;
+    align-items: center;
+}
+
+.imagemProdutoIndividual{
+    width: 210px;
+    height: 210px;
+}
+
+.titleProdutoIndividual{
+    width: 60%;
+    margin-left: 20%;
+}
+
+.descricaoProdutoIndividual{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.poupupProdutoContent textarea{
+    width: 80%;
+    min-height: 150px;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+}
+
+.footerProdutoIndividual{
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    
+}
+
+.footerProdutoIndividual div{
+    display: block;
+}
+
+.PrecoProdutoIndividual{
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.PrecoProdutoIndividual div{
+    display: flex;
+    margin-left: 30%;
+    margin-top: 8px;
+}
+
+.PrecoProdutoIndividual b{
+    color: #ff881f;
+}
+
+.PrecoProdutoIndividual button{
+    border: none;
+    border-radius: 25px;
+    background-color: #ff881f;
+    color: white;
+    height: 25px;
+    width: 25px;
+    margin-top: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.botaoProdutoIndividual{
+    width: 50%;
+    text-align: center;
+}
+
+.botaoProdutoIndividual p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.queroJa, .adicionarCarrinho{
+    height: 40px;
+    border-radius: 25px;
+    width: 80%;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.queroJa{
+    background-color: #ff881f;
+    color: white;
+}
+
+.adicionarCarrinho{
+    background-color: white;
+    color: #ff881f;
+}
+

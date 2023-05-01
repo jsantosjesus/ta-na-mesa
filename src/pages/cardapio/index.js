@@ -5,6 +5,7 @@ import MenuBottom from '../../components/menuBottom';
 import pizzaDeQueijo from '../../assets/pizzaDeQueijo.png';
 import hamburguer from '../../assets/hamburguer.png';
 import cervejaBudweiser from '../../assets/cervejaBudweiser.png';
+import { FaChevronLeft } from "react-icons/fa";
 
 function Cardapio() {
     const estabelecimento = "Pizzaria Mão de Pilão";
@@ -87,7 +88,61 @@ function Cardapio() {
 
     useEffect(() => {
         filterData();
-    }, [categoriaFiltro])
+    }, [categoriaFiltro]);
+
+    //  useState para funções de abrir e fechar poupup do produto
+
+    const [elementoAtivo, setElementoAtivo] = useState(null);
+
+    const handleClick = (object) => {
+        setElementoAtivo(object);
+    }
+
+
+    // popupup do produto
+
+    const Popup = ({ object }) => {
+        if (elementoAtivo !== object) {
+            return null;
+        }
+
+
+        const handleClose = () => {
+            setElementoAtivo(null);
+            // setConta("close");
+        };
+
+
+        return (
+
+            <div className='PoupupProduto'>
+                
+                <p className='fecharProdutoIndividual' onClick={handleClose}><FaChevronLeft /></p>
+                <div className='poupupProdutoContent'>
+                    <img className='imagemProdutoIndividual' src={object.imagem} alt='imagem do produto' />
+                    <h3 className='titleProdutoIndividual'>{object.nome}</h3>
+                    <p className='descricaoProdutoIndividual'>{object.Descricao}</p>
+                    <textarea placeholder='Observações' />
+                </div>
+                <div className='footerProdutoIndividual'>
+                    <div className='PrecoProdutoIndividual'>
+                        <div><b>R$ {object.preco.toFixed(2).replace(".", ",")}</b></div>
+                        <div>
+                            <button>-</button>
+                            <p>1</p>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div className='botaoProdutoIndividual'>
+                        <p><button className='queroJa'>Quero já</button></p>
+                        <p><button className='adicionarCarrinho'>Adicionar ao Carrinho</button></p>
+                    </div>
+                </div>
+
+
+            </div>
+        );
+    }
 
     return (
         <div className='bodyCardapio'>
@@ -124,7 +179,7 @@ function Cardapio() {
                 {filteredData.map((object, id) => (
                     <div>
                         <div className="produtos"
-                        // onClick={() => handleClick(object)}
+                            onClick={() => handleClick(object)}
                         >
 
                             <img className='produtoImagem' src={object.imagem} alt='imagem do produto' />
@@ -134,7 +189,7 @@ function Cardapio() {
                                 <p className='produtoPreco'>R$ {object.preco.toFixed(2).replace(".", ",")}</p>
                             </div>
                         </div>
-                        {/* <Popup object={object} /> */}
+                        <Popup object={object} />
                     </div>
 
                 )
