@@ -13,13 +13,20 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.headCardapio{
+.titleCardapio{
     text-align: center;
     color: #ff881f;
     width: 60%;
     margin-left: 20%;
     font-family: 'gijsuy', sans-serif;
    
+}
+
+.headCardapio{
+    position: fixed;
+    top: 0;
+    height: 200px;
+    background-color: #efefef;
 }
 
 .pesquisaCardapio{
@@ -65,19 +72,22 @@
     color:black
 }
 
+.produtosCardapio{
+    margin-top: 200px;
+}
+
 .produtos{
     display: flex;
     border-bottom: solid 1px #c8c4c4;
     border-top: solid 1px #c8c4c4;
     height: 100px;
     width: 100%;
+    
 }
 
 .produtos div{
     display: block;
     margin-left: 10px;
-    width: 100%;
-    max-width: 100%;
 }
 
 .produtoImagem{
@@ -98,7 +108,7 @@
     margin-top: 3px;
     font-size: 12px;
     max-width: 60%;
-   max-height: 30px;
+    max-height: 30px;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 0;

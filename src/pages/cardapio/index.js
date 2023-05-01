@@ -85,29 +85,32 @@ function Cardapio() {
         <div className='bodyCardapio'>
             <MenuBottom />
             <div className='headCardapio'>
-                <h1>{estabelecimento}</h1>
-            </div>
-            <div className='pesquisaCardapio'>
-                <input type="text" placeholder="Pesquise aqui" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}></input>
-            </div>
-            <div className='categorias'>
-                <div onClick={() => escolherCategoria('todos')}
-                    className={
-                        'todos' === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
-                    }>
-                    Todos
+                <div className='titleCardapio'>
+                    <h1>{estabelecimento}</h1>
                 </div>
-                {categorias.map((categorias, index) => (
 
-                    <div onClick={() => escolherCategoria(categorias.nome)}
-                        key={categorias.nome}
+                <div className='pesquisaCardapio'>
+                    <input type="text" placeholder="Pesquise aqui" value={searchTerm} onChange={e => setSearchTerm(e.target.value)}></input>
+                </div>
+                <div className='categorias'>
+                    <div onClick={() => escolherCategoria('todos')}
                         className={
-                            categorias.nome === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
+                            'todos' === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
                         }>
-                        {categorias.nome}
+                        Todos
                     </div>
+                    {categorias.map((categorias, index) => (
 
-                ))}
+                        <div onClick={() => escolherCategoria(categorias.nome)}
+                            key={categorias.nome}
+                            className={
+                                categorias.nome === selecionado ? 'categoriaAtivo' : 'categoriaInativo'
+                            }>
+                            {categorias.nome}
+                        </div>
+
+                    ))}
+                </div>
             </div>
             <div className='produtosCardapio'>
                 {filteredData.map((object, id) => (
