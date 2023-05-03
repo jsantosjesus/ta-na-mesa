@@ -47,7 +47,7 @@ function Cardapio() {
         imagem: hamburguer,
         nome: "Hamburguer Americano",
         Descricao: "Carne Bovina, Tomate, Cebola, Alface, Queijo",
-        preco: 4.99,
+        preco: 6.99,
         categoria: 'lanches'
     }]);
 
@@ -98,25 +98,48 @@ function Cardapio() {
         setElementoAtivo(object);
     }
 
+    const [quantidade, setQuantidade] = useState(1);
+
+    const [subtotal, setSubtotal] = useState(0);
 
     // popupup do produto
 
     const Popup = ({ object }) => {
+
+        const calcularSubtotal = () => {
+            setSubtotal(object.preco * quantidade);
+        }
+    
+        const alterarQuantidade = (operador) => {
+            setQuantidade(quantidade + operador);
+        }
+    
+        // useEffect(() => {
+        //     calcularSubtotal();
+        // }, [alterarQuantidade]);
+
+        
+
+
         if (elementoAtivo !== object) {
             return null;
         }
 
+        calcularSubtotal();
+
 
         const handleClose = () => {
             setElementoAtivo(null);
-            // setConta("close");
+            setQuantidade(1);
+            setSubtotal(0);
         };
+
 
 
         return (
 
             <div className='PoupupProduto'>
-                
+
                 <p className='fecharProdutoIndividual' onClick={handleClose}><FaChevronLeft /></p>
                 <div className='poupupProdutoContent'>
                     <img className='imagemProdutoIndividual' src={object.imagem} alt='imagem do produto' />
@@ -126,11 +149,11 @@ function Cardapio() {
                 </div>
                 <div className='footerProdutoIndividual'>
                     <div className='PrecoProdutoIndividual'>
-                        <div><b>R$ {object.preco.toFixed(2).replace(".", ",")}</b></div>
+                        <div><b>R$ {subtotal.toFixed(2).replace(".", ",")}</b></div>
                         <div>
-                            <button>-</button>
-                            <p>1</p>
-                            <button>+</button>
+                            <button onClick={() => {if(quantidade > 1){alterarQuantidade(-1)}}}>-</button>
+                            <p>{quantidade}</p>
+                            <button onClick={() => {alterarQuantidade(+1)}}>+</button>
                         </div>
                     </div>
                     <div className='botaoProdutoIndividual'>
