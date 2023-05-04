@@ -10,6 +10,10 @@ import { FaChevronLeft } from "react-icons/fa";
 function Cardapio() {
     const estabelecimento = "Pizzaria Mão de Pilão";
 
+    const [produtoAdicionado, setProdutoAdicionado] = useState([{}]);
+
+    const adicionandoProdutoCarrinho = () => { localStorage.setItem('carrinho', produtoAdicionado) };
+
     const [produtos, setProdutos] = useState([{
         id: 1,
         imagem: pizzaDeQueijo,
@@ -109,16 +113,27 @@ function Cardapio() {
         const calcularSubtotal = () => {
             setSubtotal(object.preco * quantidade);
         }
-    
+
         const alterarQuantidade = (operador) => {
             setQuantidade(quantidade + operador);
         }
-    
-        // useEffect(() => {
-        //     calcularSubtotal();
-        // }, [alterarQuantidade]);
 
-        
+        const [observacoes, setObservacoes] = useState(''); 
+
+        const formulandoProduto = () => {
+            produtoAdicionado.push({
+                id: object.id,
+                imagem: object.imagem,
+                nome: object.nome,
+                preco: object.preco,
+                categoria: object.categoria,
+                observacao: observacoes,
+                quantidade: quantidade
+            });
+            console.log(produtoAdicionado);
+        };
+
+
 
 
         if (elementoAtivo !== object) {
@@ -134,8 +149,7 @@ function Cardapio() {
             setSubtotal(0);
         };
 
-
-
+    
         return (
 
             <div className='PoupupProduto'>
@@ -145,20 +159,20 @@ function Cardapio() {
                     <img className='imagemProdutoIndividual' src={object.imagem} alt='imagem do produto' />
                     <h3 className='titleProdutoIndividual'>{object.nome}</h3>
                     <p className='descricaoProdutoIndividual'>{object.Descricao}</p>
-                    <textarea placeholder='Observações' />
+                    <textarea onChange={e => setObservacoes(e.target.value)} placeholder='Observações' />
                 </div>
                 <div className='footerProdutoIndividual'>
                     <div className='PrecoProdutoIndividual'>
                         <div><b>R$ {subtotal.toFixed(2).replace(".", ",")}</b></div>
                         <div>
-                            <button onClick={() => {if(quantidade > 1){alterarQuantidade(-1)}}}>-</button>
+                            <button onClick={() => { if (quantidade > 1) { alterarQuantidade(-1) } }}>-</button>
                             <p>{quantidade}</p>
-                            <button onClick={() => {alterarQuantidade(+1)}}>+</button>
+                            <button onClick={() => { alterarQuantidade(+1) }}>+</button>
                         </div>
                     </div>
                     <div className='botaoProdutoIndividual'>
                         <p><button className='queroJa'>Quero já</button></p>
-                        <p><button className='adicionarCarrinho'>Adicionar ao Carrinho</button></p>
+                        <p><button className='adicionarCarrinho' onClick={formulandoProduto}>Adicionar ao Carrinho</button></p>
                     </div>
                 </div>
 

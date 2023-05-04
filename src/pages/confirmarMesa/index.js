@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import logo from '../../assets/logomarca.png';
 import './confirmarMesa.css';
+import { Link } from "react-router-dom";
 
 function confirmarMesa(){
     const estabelecimento = "Mão de pilão";
@@ -14,7 +15,7 @@ function confirmarMesa(){
                 <p className='titleMesa'><b>Por favor, confirme sua mesa</b></p>
                 <p>{estabelecimento}</p>
                 <p>{mesa}</p>
-                <input className='buttonConfirmarMesa' type='submit' value="Confirmar"></input>
+                <Link to='/cardapio'><input className='buttonConfirmarMesa' type='submit' value="Confirmar"></input></Link>
             </form>
             <button>Essa não é minha mesa</button>
         </div>
