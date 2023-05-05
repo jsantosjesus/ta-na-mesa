@@ -10,9 +10,13 @@ import { FaChevronLeft } from "react-icons/fa";
 function Cardapio() {
     const estabelecimento = "Pizzaria Mão de Pilão";
 
-    const [produtoAdicionado, setProdutoAdicionado] = useState([{}]);
+    const [produtoAdicionado, setProdutoAdicionado] = useState({});
 
-    const adicionandoProdutoCarrinho = () => { localStorage.setItem('carrinho', produtoAdicionado) };
+    let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+    if (carrinho == null) {
+        carrinho = []
+    }
+
 
     const [produtos, setProdutos] = useState([{
         id: 1,
@@ -102,26 +106,39 @@ function Cardapio() {
         setElementoAtivo(object);
     }
 
-    const [quantidade, setQuantidade] = useState(1);
 
-    const [subtotal, setSubtotal] = useState(0);
 
     // popupup do produto
 
     const Popup = ({ object }) => {
 
-        const calcularSubtotal = () => {
-            setSubtotal(object.preco * quantidade);
-        }
+        const [quantidade, setQuantidade] = useState(1);
+
+        const [subtotal, setSubtotal] = useState(0);
 
         const alterarQuantidade = (operador) => {
             setQuantidade(quantidade + operador);
         }
 
-        const [observacoes, setObservacoes] = useState(''); 
+        const calcularSubtotal = () => {
+            setSubtotal(object.preco * quantidade);
+        }
+
+        useEffect(() => {
+            calcularSubtotal();
+        }, [quantidade]);
+
+        const Subtotal = React.memo(({ subtotal }) => {
+            return (
+                <div><b>R$ {subtotal.toFixed(2).replace(".", ",")}</b></div>
+            );
+        });
+
+
+        const [observacoes, setObservacoes] = useState('');
 
         const formulandoProduto = () => {
-            produtoAdicionado.push({
+            setProdutoAdicionado({
                 id: object.id,
                 imagem: object.imagem,
                 nome: object.nome,
@@ -130,17 +147,31 @@ function Cardapio() {
                 observacao: observacoes,
                 quantidade: quantidade
             });
-            console.log(produtoAdicionado);
+
         };
 
 
+        const adicionandoProdutoCarrinho = () => {
+            formulandoProduto();
+            let encontrado = false;
+            for (let i = 0; i < carrinho.length; i++) {
+                if (carrinho[i].nome == produtoAdicionado.nome && carrinho[i].observacao == produtoAdicionado.observacao) {
+                    carrinho[i].quantidade = carrinho[i].quantidade + produtoAdicionado.quantidade;
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                carrinho.push(produtoAdicionado);
+            }
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+        };
 
 
         if (elementoAtivo !== object) {
             return null;
         }
-
-        calcularSubtotal();
 
 
         const handleClose = () => {
@@ -149,7 +180,7 @@ function Cardapio() {
             setSubtotal(0);
         };
 
-    
+
         return (
 
             <div className='PoupupProduto'>
@@ -163,7 +194,7 @@ function Cardapio() {
                 </div>
                 <div className='footerProdutoIndividual'>
                     <div className='PrecoProdutoIndividual'>
-                        <div><b>R$ {subtotal.toFixed(2).replace(".", ",")}</b></div>
+                        <Subtotal subtotal={subtotal} />
                         <div>
                             <button onClick={() => { if (quantidade > 1) { alterarQuantidade(-1) } }}>-</button>
                             <p>{quantidade}</p>
@@ -172,7 +203,7 @@ function Cardapio() {
                     </div>
                     <div className='botaoProdutoIndividual'>
                         <p><button className='queroJa'>Quero já</button></p>
-                        <p><button className='adicionarCarrinho' onClick={formulandoProduto}>Adicionar ao Carrinho</button></p>
+                        <p><button className='adicionarCarrinho' onClick={adicionandoProdutoCarrinho}>Adicionar ao Carrinho</button></p>
                     </div>
                 </div>
 
