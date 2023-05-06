@@ -106,7 +106,7 @@ function Cardapio() {
         setElementoAtivo(object);
     }
 
-
+    
 
     // popupup do produto
 
@@ -124,9 +124,13 @@ function Cardapio() {
             setSubtotal(object.preco * quantidade);
         }
 
+        const [observacoes, setObservacoes] = useState('')
+
         useEffect(() => {
             calcularSubtotal();
         }, [quantidade]);
+
+
 
         const Subtotal = React.memo(({ subtotal }) => {
             return (
@@ -135,7 +139,7 @@ function Cardapio() {
         });
 
 
-        const [observacoes, setObservacoes] = useState('');
+        ;
 
         const formulandoProduto = () => {
             setProdutoAdicionado({
@@ -147,6 +151,8 @@ function Cardapio() {
                 observacao: observacoes,
                 quantidade: quantidade
             });
+            console.log('formulou');
+            console.log(produtoAdicionado)
 
         };
 
@@ -165,6 +171,7 @@ function Cardapio() {
                 carrinho.push(produtoAdicionado);
             }
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            console.log('mandou')
 
         };
 
@@ -203,7 +210,9 @@ function Cardapio() {
                     </div>
                     <div className='botaoProdutoIndividual'>
                         <p><button className='queroJa'>Quero já</button></p>
-                        <p><button className='adicionarCarrinho' onClick={adicionandoProdutoCarrinho}>Adicionar ao Carrinho</button></p>
+                        <p><button className='adicionarCarrinho' 
+                        onClick={adicionandoProdutoCarrinho}
+                        >Adicionar ao Carrinho</button></p>
                     </div>
                 </div>
 
