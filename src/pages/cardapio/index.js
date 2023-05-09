@@ -10,7 +10,7 @@ import { FaChevronLeft } from "react-icons/fa";
 function Cardapio() {
     const estabelecimento = "Pizzaria Mão de Pilão";
 
-    const [produtoAdicionado, setProdutoAdicionado] = useState({});
+    // const [produtoAdicionado, setProdutoAdicionado] = useState({});
 
     let carrinho = JSON.parse(localStorage.getItem('carrinho'));
     if (carrinho == null) {
@@ -142,7 +142,8 @@ function Cardapio() {
         ;
 
         const formulandoProduto = () => {
-            setProdutoAdicionado({
+
+            let p ={
                 id: object.id,
                 imagem: object.imagem,
                 nome: object.nome,
@@ -150,15 +151,19 @@ function Cardapio() {
                 categoria: object.categoria,
                 observacao: observacoes,
                 quantidade: quantidade
-            });
+            }
+
             console.log('formulou');
-            console.log(produtoAdicionado)
+            console.log(p);
+
+           return p;
+            
 
         };
 
 
         const adicionandoProdutoCarrinho = () => {
-            formulandoProduto();
+            let produtoAdicionado = formulandoProduto();
             let encontrado = false;
             for (let i = 0; i < carrinho.length; i++) {
                 if (carrinho[i].nome == produtoAdicionado.nome && carrinho[i].observacao == produtoAdicionado.observacao) {
