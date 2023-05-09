@@ -179,7 +179,8 @@ function Cardapio() {
             console.log('mandou')
             setObservacoes("");
             setQuantidade(1);
-            textObservacao.value =('');
+            console.log(textObservacao);
+            textObservacao.value = ("");
 
         };
 
