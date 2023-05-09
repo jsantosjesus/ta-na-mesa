@@ -177,6 +177,8 @@ function Cardapio() {
             }
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
             console.log('mandou')
+            setObservacoes("");
+            setQuantidade(1);
 
         };
 
@@ -191,6 +193,8 @@ function Cardapio() {
             setQuantidade(1);
             setSubtotal(0);
         };
+
+       
 
 
         return (
