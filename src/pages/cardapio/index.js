@@ -180,7 +180,7 @@ function Cardapio() {
             setObservacoes("");
             setQuantidade(1);
             console.log(textObservacao);
-            textObservacao.value = ("");
+            textObservacao.innerHTML = ("");
 
         };
 
