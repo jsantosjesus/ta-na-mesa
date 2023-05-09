@@ -179,6 +179,7 @@ function Cardapio() {
             console.log('mandou')
             setObservacoes("");
             setQuantidade(1);
+            textObservacao.value =('');
 
         };
 
@@ -206,7 +207,7 @@ function Cardapio() {
                     <img className='imagemProdutoIndividual' src={object.imagem} alt='imagem do produto' />
                     <h3 className='titleProdutoIndividual'>{object.nome}</h3>
                     <p className='descricaoProdutoIndividual'>{object.Descricao}</p>
-                    <textarea onChange={e => setObservacoes(e.target.value)} placeholder='Observações' />
+                    <textarea id='textObservacao' onChange={e => setObservacoes(e.target.value)} placeholder='Observações' />
                 </div>
                 <div className='footerProdutoIndividual'>
                     <div className='PrecoProdutoIndividual'>
