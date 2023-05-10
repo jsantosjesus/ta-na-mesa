@@ -182,7 +182,7 @@ function Cardapio() {
             setQuantidade(1);
             
             console.log(textObservacao);
-            textObservacao.innerHTML = ("");
+            textObservacao.value = ("");
 
         };
 
