@@ -165,6 +165,7 @@ function Cardapio() {
         const adicionandoProdutoCarrinho = () => {
             let produtoAdicionado = formulandoProduto();
             let encontrado = false;
+            let textObservacao = document.getElementById("textObservacao")
             for (let i = 0; i < carrinho.length; i++) {
                 if (carrinho[i].nome == produtoAdicionado.nome && carrinho[i].observacao == produtoAdicionado.observacao) {
                     carrinho[i].quantidade = carrinho[i].quantidade + produtoAdicionado.quantidade;
@@ -179,6 +180,7 @@ function Cardapio() {
             console.log('mandou')
             setObservacoes("");
             setQuantidade(1);
+            
             console.log(textObservacao);
             textObservacao.innerHTML = ("");
 
