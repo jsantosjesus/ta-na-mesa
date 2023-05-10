@@ -153,9 +153,6 @@ function Cardapio() {
                 quantidade: quantidade
             }
 
-            console.log('formulou');
-            console.log(p);
-
            return p;
             
 
@@ -177,11 +174,9 @@ function Cardapio() {
                 carrinho.push(produtoAdicionado);
             }
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            console.log('mandou')
             setObservacoes("");
             setQuantidade(1);
-            
-            console.log(textObservacao);
+            produtoAdicionado = null;
             textObservacao.value = ("");
 
         };
