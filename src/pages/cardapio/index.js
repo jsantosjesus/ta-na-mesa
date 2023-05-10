@@ -176,7 +176,6 @@ function Cardapio() {
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
             setObservacoes("");
             setQuantidade(1);
-            produtoAdicionado = null;
             textObservacao.value = ("");
 
         };
